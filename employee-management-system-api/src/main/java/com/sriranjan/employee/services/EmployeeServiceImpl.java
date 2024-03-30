@@ -51,12 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployeeById(Long id) {
         EmployeeEntity employeeEntity = employeeRepository.findById(id).get();
         Employee employee = new Employee();
-        employee.setId(employeeEntity.getId());
-        employee.setEmailId(employeeEntity.getEmailId());
-        employee.setLastName(employeeEntity.getLastName());
-        employee.setFirstName(employeeEntity.getFirstName());
-
-//        BeanUtils.copyProperties(employeeEntity, employee);
+        BeanUtils.copyProperties(employeeEntity, employee);
         return employee;
     }
 
